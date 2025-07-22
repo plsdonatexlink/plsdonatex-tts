@@ -1,1 +1,25 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PLS DONATE X TTS</title>
+  <style>
+    body { margin: 0; background: transparent; }
+  </style>
+</head>
+<body>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const user = urlParams.get('user') || 'Someone';
+    const amount = urlParams.get('amount') || '0';
+    const message = urlParams.get('message') || '';
+
+    const ttsText = `${user} sent ${amount} Robux via PLS DONATE X. ${message}`;
+
+    const synth = window.speechSynthesis;
+    const utter = new SpeechSynthesisUtterance(ttsText);
+    utter.lang = 'en-US';
+    synth.speak(utter);
+  </script>
+</body>
+</html>
